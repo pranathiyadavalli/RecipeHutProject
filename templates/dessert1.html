@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Chocolava Cake</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 200%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="#">Appetizers</a>
+          <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+          <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+         <a class="dropdown-item" href="#">Beverages</a>
+          
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+          {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>{% else %}
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+      </li>
+      {% endif %}
+    </ul>
+</nav>
+
+<div class="heading"> <b> Chocolava Cake</b> </div>
+<div> <img class="picture" src="{% static 'images/dessert1.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}" /> Cook Time: 40mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 2</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Chocolava Cake:</b>
+135 Gram Dark chocolate
+95 Gram Butter
+100 Gram Icing sugar
+2 each Egg yolks + whole eggs
+35 Gram Flour
+</pre>
+</div>
+{% if user.is_authenticated %}
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.Pre heat the oven at 200 degrees.
+2.In a microwaveable bowl add chocolate and butter. Melt it.
+ (You can melt using the double boiler method too.)
+3.In another bowl whisk together sugar and eggs.
+4.Mix together the chocolate-butter mixture with the sugar-eggs mixture.
+5.Fold in the flour.
+6.Strain the mixture to remove any lumps.
+7.Keep this in the fridge for 5-7 minutes to chill.
+8.Pour the batter in greased ramekins.
+9.Bake for 9-10 minutes.
+10.Serve with whipped cream / vanilla ice cream or fresh fruits.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+<br>
+{% endif %}
+
+</body>
+</html>
+
+
+	

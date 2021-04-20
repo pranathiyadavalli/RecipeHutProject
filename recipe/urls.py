@@ -1,0 +1,50 @@
+
+from django.urls import path
+from . import views
+from .views import SearchResultsView
+
+urlpatterns = [
+    path('',views.home,name="home"),
+    path('register/',views.register,name='register'),
+    path('user_login/',views.user_login,name='user_login'),
+    path('maincourse/',views.main,name="main"),
+    path('maincourse/main1',views.main1,name="main1"),
+    path('maincourse/main2',views.main2,name="main2"),
+    path('maincourse/main3',views.main3,name="main3"),
+    path('maincourse/main4',views.main4,name="main4"),
+    path('maincourse/main5',views.main5,name="main5"),
+    path('maincourse/main6',views.main6,name="main6"),
+    path('maincourse/main7',views.main7,name="main7"),
+    path('maincourse/main8',views.main8,name="main8"),
+    path('kitchenhacks',views.kitchenhacks,name="kitchenhacks"),
+    path('desserts/',views.desserts,name="desserts"),
+    path('desserts/dessert1',views.dessert1,name="dessert1"),
+    path('desserts/dessert2',views.dessert2,name="dessert2"),
+    path('desserts/dessert3',views.dessert3,name="dessert3"),
+    path('desserts/dessert4',views.dessert4,name="dessert4"),
+    path('desserts/dessert5',views.dessert5,name="dessert5"),
+    path('desserts/dessert6',views.dessert6,name="dessert6"),
+    path('desserts/dessert7',views.dessert7,name="dessert7"),
+    path('desserts/dessert8',views.dessert8,name="dessert8"),
+    path('starters/',views.starters,name="starters"),
+    path('beverages/',views.beverages,name="beverages"),
+    path('beverages/drink1',views.drink1,name="drink1"),
+    path('beverages/drink2',views.drink2,name="drink2"),
+    path('beverages/drink3',views.drink3,name="drink3"),
+    path('beverages/drink4',views.drink4,name="drink4"),
+    path('beverages/drink5',views.drink5,name="drink5"),
+    path('beverages/drink6',views.drink6,name="drink6"),
+    path('beverages/drink7',views.drink7,name="drink7"),
+    path('beverages/drink8',views.drink8,name="drink8"),
+    path('starters/starter1',views.starter1,name="starter1"),
+    path('starters/starter2',views.starter2,name="starter2"),
+    path('starters/starter3',views.starter3,name="starter3"),
+    path('starters/starter4',views.starter4,name="starter4"),
+    path('starters/starter5',views.starter5,name="starter5"),
+    path('starters/starter6',views.starter6,name="starter6"),
+    path('starters/starter7',views.starter7,name="starter7"),
+    path('starters/starter8',views.starter8,name="starter8"),
+    path('search/',SearchResultsView.as_view(),name='search_results'),
+    
+    
+]

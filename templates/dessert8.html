@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Tart</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 270%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture{
+    margin-top: 20px;
+    height: 300px;
+    margin-left: 400px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href= "/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+             <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+           
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+        {% if user.is_authenticated %}
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>{% else %}
+     <li class="nav-item active">
+      <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+  
+    </li>
+    {% endif %}
+  </ul>
+   
+ 
+</nav>
+
+<div class="heading"> <b>Tart</b> </div>
+<div> <img class="picture" src="{% static 'images/dessert8.jpeg' %}"  /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}"  /> Cook Time: 90 mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}"  /> Servings: 5</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Tart:</b>
+<b>Cookie crust:</b>
+1 box Cookie Mix
+1 egg
+6 tablespoons softened butter
+
+<b>Filling:</b>
+¼ cup heavy whipping cream
+6 oz softened cream cheese
+½ teaspoon vanilla
+⅓ cup + 3 tablespoons powdered sugar
+
+<b>Lemon Glaze:</b>
+1 tablespoon lemon juice
+3 tablespoons powdered sugar
+
+
+</pre>
+</div>
+{% if user.is_authenticated %}
+
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.Preheat oven to 350 degrees F. Make sugar cookie mix as directed. 
+Scoop three tablespoons cookie dough into each mini tart pan.
+ Using your hands, smooth and flatten dough, making sure to come up the sides.
+  Poke the bottom with a fork 3 times. Bake for 11-12 minutes. Let cool.
+2.Time to make your filling! Using the whisk attachment on an electric mixer,
+ beat heavy cream until whipped. Set aside in a separate bowl. In the same mixer,
+  beat the cream cheese, powdered sugar and vanilla until smooth, about a minute.
+   Fold in the whipped cream until filling is smooth and creamy.
+3.In a small bowl, whisk the lemon juice and powdered sugar until smooth.
+4.Assemble the tarts by filling each tart with a heaping tablespoon of filling,
+ some berries and a drizzle of lemon glaze. Dust with powdered sugar. Enjoy!
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+{% endif %}
+<br>
+
+
+</body>
+</html>
+
+

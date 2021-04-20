@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Stuffed Kulcha</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 365%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <<a href= "/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         
+            <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+             <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+           
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+        {% if user.is_authenticated %}
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>{% else %}
+     <li class="nav-item active">
+      <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+    </li>
+    {% endif %}
+  </ul>
+   
+ 
+</nav>
+
+<div class="heading"> <b>Stuffed Kulcha</b> </div>
+<div> <img class="picture" src="{% static 'images/main8.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}"/> Cook Time: 170mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 6</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Stuffed Kulcha:</b>
+<b>For the Kulcha:</b>
+2 cups All Purpose Flour (Maida)
+1 tablespoon Sooji (Semolina/ Rava)
+1/2 cup Curd (Dahi / Yogurt)
+1 tablespoon Cooking oil
+1/2 teaspoon Baking soda
+1 teaspoon Sugar
+1 teaspoon Salt
+Kalonji (Onion Nigella Seeds) , for ganish
+Coriander (Dhania) Leaves , chopped, to garnish
+Butter  , melted, to brush
+<b>For the stuffing:</b>
+1/2 teaspoon Cooking oil
+1 Green Chilli  , chopped
+1/4 cup Onion , chopped
+1/2 teaspoon Garlic , minced
+1/2 cup Carrots (Gajjar)  , grated, more to garnish
+1/2 cup Potatoes (Aloo) , grated
+1/2 cup Green peas (Matar)  , cooked & mashed
+1/4 teaspoon Turmeric powder (Haldi)
+1/2 teaspoon Coriander Powder (Dhania)
+1/4 teaspoon Garam masala powder
+Salt  , to taste
+</pre>
+</div>
+{% if user.is_authenticated %}
+
+<br>
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.To begin making the Stuffed Vegetable Kulcha first mix together sooji and yogurt and set aside for 
+ten minutes, in a large mixing bowl.
+2.Once the sooji has soaked in the yoghurt, add maida, oil, baking soda, sugar and salt to it and knead
+together into a smooth. The dough should be firm and hold together, but supple and soft to touch.
+3.Cover the dough with a lid and it in the refrigerator for two hours to leaven.
+4.Meanwhile, prepare the stuffing. Place a pan on the heat and warm some oil in it. Add the chopped 
+onions to it and saute along with the green chilies until the onions are softened and pale.
+5.Add all the veggies, and sprinkle the turmeric powder, coriander powder, garam masala and salt. Cook 
+for five to seven minutes until the vegetables are cooked through and switch off the heat.
+6.Place a skillet on the heat to pre-heat. Meanwhile, portion out the dough into golf ball sized pieces.
+7.Working with one portion at a time, roll out the dough into small circle about 2.5-3 inches in 
+diameter. Take the rolled circle in your palm, place a spoonful of the vegetable filling in the center, 
+while cupping it in your palm.
+8.Bring all the edges of the circle together to seal the filling inside, like a tight pouch. Make sure 
+there are no air pockets within.
+9.Gently press the stuffed ball out once again slightly. Without adding too much flour, roll the 
+kulcha out to a thick disc.
+10.Next, sprinkle water on the kulcha, sprinkle kalonji and grated carrot and press down so it sticks.
+11.Do not apply too much pressure at one place else the kulcha will tear and stuffing will come out. 
+Kulchas are usually thicker than parathas.
+12.Place the kulcha on the pan and cook until bubbles begin to appear on the surface. Apply a little 
+oil on the top and flip the kulcha over to brown the other side.
+13.Repeat, applying ghee, butter or oil and cooking the kulcha until it attains a nice even brown hue 
+with some spots.
+14.Serve hot along with Channa and Raita, or even plain with melted butter for breakfast. You could 
+also pack it in a school lunch box along with a Paneer Curry.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+{% endif %}
+
+
+</body>
+</html>
+

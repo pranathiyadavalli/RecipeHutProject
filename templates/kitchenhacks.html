@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kitchen Hacks</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: vernada;
+}
+
+
+
+.bg-image {
+
+  background-image: url("picture3.jpeg");
+
+
+  height: 100%; 
+  
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.caption{
+text-align :center;
+color:#138D75;
+}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+    
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+          <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+          <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+           <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+         
+          
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+          {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>{% else %}
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+      </li>
+      {% endif %}
+    </ul>
+</nav>
+
+<div class="container">
+  <h2 class="caption">Kitchen Hacks!</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    
+<div class="carousel-inner">
+<div class="item active">
+        <img src="{% static 'images/hack1.jpeg' %}" alt="Los Angeles" style="width:100%; height:560px">
+        <div class="carousel-caption">
+          <h3>Slicing Cake</h3>
+          <p>Use dental floss to slice the cake like a pro!</p>
+        </div>
+      </div>
+<div class="item">
+        <img src="{% static 'images/hack2.jpeg' %}" style="width:100%; height:560px">
+        <div class="carousel-caption">
+          <h3>Cutting Onion</h3>
+          <p>The Trick to Cutting Onions Without Making You Cry</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="{% static 'images/hack3.jpeg'%}" style="width:100%; height:560px">
+        <div class="carousel-caption">
+          <h3>Egg Hacks</h3>
+          <p>Peeling egg like a pro!</p>
+        </div>
+      </div>
+
+<div class="item">
+        <img src="{% static 'images/hack4.jpeg'%}" style="width:100%; height:560px">
+        <div class="carousel-caption">
+          <h3>Chopping Board Hacks</h3>
+          <p>Things you were doing wrong!</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
+

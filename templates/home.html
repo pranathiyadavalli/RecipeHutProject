@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: vernada;
+}
+
+
+
+.bg-image {
+
+  background-image: url("{% static 'images/picture.jpg' %}");
+  
+ 
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  
+
+  height: 100%; 
+  
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  height: 30%;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0" action="{% url 'search_results' %}">
+      <input name="q" class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+          <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+          <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+           <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+         
+          
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+          {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>{% else %}
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+      </li>
+      {% endif %}
+    </ul>
+</nav>
+<div class="bg-image"></div>
+<div class="bg-text">
+<b>"Cooking is like painting or writing a song. Just as there are only so many colors or notes, there are only so many flavors - it's how you combine them that sets you apart. "</b>
+</div>
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" ><h2><b>Follow us on: </b> </h2>    
+    <a href="https://www.instagram.com/recipe_hut/"><img src="{% static 'images/icon3.svg' %}" width="50" height="50" class="d-inline-block align-top"  alt=""> </a> 
+    <a href="https://www.facebook.com/Recipe-Hut-632478833930359/?ref=bookmarks"><img src="{% static 'images/icon4.svg' %}" width="50" height="50" class="d-inline-block align-top"  alt=""> </a>   
+    <a href="https://twitter.com/hut_recipe"><img src="{% static 'images/icon5.svg' %}" width="50" height="50" class="d-inline-block align-top"  alt="">  </a>  
+  </a>
+  
+</nav>
+
+
+</body>
+</html>

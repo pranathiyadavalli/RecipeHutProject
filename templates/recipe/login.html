@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  margin-left:9px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 12px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 10%;
+}
+
+.container {
+  padding: 12px;
+  text-align:center;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+
+</style>
+</head>
+<body background = "{% static 'images/img2.jpeg' %}">
+<br>
+<br>
+<br>
+<h1 style="text-align:center; font-family:Comic Sans MS">LOGIN</h1>
+<div class="imgcontainer">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" alt="Avatar" class="avatar"></a>
+  </div>
+
+
+  <div class="container">
+    <div class="jumbotron">
+      
+<form method="post" action="{% url 'user_login' %}">
+          {% csrf_token %}
+          
+          <label for="username"><b><h2>Username:</b></label></h2>
+          <input type="text" name="username" placeholder="Username"><br />
+<label for="password"><b><h2>Password:</h2></b></label>
+          <input type="password" name="password" placeholder="Password"><br />
+<center><input type="submit" name="" value="Login" style="height:30px; width:60px;"></center>
+<br />
+<h2><center>Need an account?<a href="{% url 'register' %}">SignUp</a></center></h2>
+  
+</form>
+</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Tricolor Salad</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 220%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+     
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+             <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+           
+            
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item active">
+            {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>{% else %}
+         <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+  
+        </li>
+        {% endif %}
+      </ul>
+  </nav>
+
+<div class="heading"> <b>Tricolor Salad</b> </div>
+<div> <img class="picture" src="{% static 'images/starter8.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}" /> Cook Time: 25mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 2</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Tricolor Salad:</b>
+1/3 cup vinegar
+3 tbsp honey/sugar
+1 tbsp soy sauce
+1 tsp salt
+2 garlic cloves (minced)
+1-2 chilli pepper (sliced), sliced
+For salad:
+1 medium green papaya
+1 large carrot (peeled), julienne
+1-2 cucumbers, julienne
+1/3 cup mint leaves, chopped
+4 tbsp toasted peanuts
+</pre>
+</div>
+{% if user.is_authenticated %}
+<br>
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.Mix all the ingredients for the dressing in a small bowl and set aside
+2.Slice off the ends of the green papaya. Using a vegetable peeler, peel the outer skin.
+ Slice off a layer of the papaya, creating green papaya shreds.
+3.Toss the salad in a large bowl, mix the green papaya, carrots, cucumber, mint and peanuts.
+4.Pour in the dressing that’s been marinating and toss to coat the vegetables with the dressing.
+ Serve immediately.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+{% endif %}
+
+</body>
+</html>
+

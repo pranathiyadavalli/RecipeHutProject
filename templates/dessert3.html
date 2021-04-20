@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Gulab Jamun</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 250%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <<a href= "/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         
+            <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+             <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+           
+          
+        </div>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+    </li>
+    <li class="nav-item active">
+      {% if user.is_authenticated %}
+    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+  </li>{% else %}
+   <li class="nav-item active">
+    <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+  </li>
+  {% endif %}
+</ul>
+ 
+ 
+</nav>
+
+<div class="heading"> <b> Gulab Jamun</b> </div>
+<div> <img class="picture" src="{% static 'images/dessert3.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src= "{% static 'images/icon1.svg' %}"/> Cook Time: 25mins 
+<img class="icon" src= "{% static 'images/icon2.svg' %}" /> Servings: 10</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Gulab Jamun:</b>
+<b>For dough:</b>
+150 Gram Chena
+500 Gram Dhaap Khoya
+1/2 tsp Green Cardamom Powder
+80 Gram Refined Flour
+Sugar syrup
+10 Tbsp Sugar
+<b>For stuffing:</b>
+10 Gram Green Pistachio
+<b>For garnishing:</b>
+40 Gram Almonds, sliced
+<b>For frying:</b>
+Refined Oil
+</pre>
+</div>
+{% if user.is_authenticated %}
+
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.To make the gulab jamun balls, mix chena, dhaap khoya, refined flour
+ and green cardamom powder in a smooth dough.
+2.Keep it aside. Next to prepare the syrup for the Gulab Jamun.
+3.For the syrup, add sugar and water in pot and put it on slow fire till
+ it turns in a semi thick sugar syrup.
+4.For the main step, even sized balls of the khoya mixture needs to be made.
+5.While doing so, add chopped pistachio in the khoya balls.
+6.Deep fry them in hot refined oil on a slow fire till they are nice dark brown in colour.
+7.Immediately transfer the fried gulab jamuns into the hot sugar syrup.
+ Keep them soaked in sugar syrup for at least 2 hours.
+8.Serve hot garnished with sliced almonds.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+{% endif %}
+<br>
+
+
+</body>
+</html>
+
+

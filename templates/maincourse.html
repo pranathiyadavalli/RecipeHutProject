@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Main Course</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+#img {
+margin-top :30px;
+height :210px;
+width :21%;
+margin-left :0px;
+cursor :pointer;
+margin-right :0px;
+}
+
+
+
+.menu {
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 10px;
+   
+}
+
+.menutext {
+    
+    margin-left: 50px;
+    font-size: 28px;
+    padding: 5px;
+    font-family: Ariel;
+    text-align: justify;
+    color: black;
+}
+
+
+#pic {
+    height: 200px;
+    width: 280px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom:0px;
+  
+}
+
+.underline {
+    text-decoration: none;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: vernada;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  
+ 
+ 
+  
+
+  height: 100%; 
+  
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px /></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         
+          <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+          <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+          <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+         <a class="dropdown-item" href="#">Beverages</a>
+          
+        </div>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+          </li>
+          <li class="nav-item active">
+              {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>{% else %}
+           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+    
+          </li>
+          {% endif %}
+        </ul>
+    </nav>
+
+
+
+<table>
+<tr>
+<td><a href="{% url 'main1' %}" class="underline"><img src="{% static 'images/main1.jpeg' %}" id="pic" class="menu"/><figcaption class="menutext"><br />Chicken Biryani</figcaption></a></td>
+<td><a href="{% url 'main2' %}" class="underline"><img src="{% static 'images/main2.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Veg Fried Rice</figcaption></a></td>
+<td><a href="{% url 'main3' %}" class="underline"><img src="{% static 'images/main3.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Paneer Butter Masala</figcaption></a></td>
+<td><a href="{% url 'main4' %}" class="underline"><img src="{% static 'images/main4.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Fish Curry</figcaption></a></td>
+
+
+</tr>
+<tr>
+<td><a href="{% url 'main5' %}" class="underline"><img src="{% static 'images/main5.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Egg Noodles </figcaption></a></td>
+<td><a href="{% url 'main6' %}" class="underline"><img src="{% static 'images/main6.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Natu Kodi Pulusu</figcaption></a></td>
+<td><a href="{% url 'main7' %}" class="underline"><img src="{% static 'images/main7.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Butter Naan</figcaption></a></td>
+<td><a href="{% url 'main8' %}" class="underline"><img src="{% static 'images/main8.jpeg' %}"  id="pic" class="menu"/><figcaption class="menutext"><br />Stuffed Kulcha</figcaption></a></td>
+
+</tr>
+</table>
+
+</body>
+</html>

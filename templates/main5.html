@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Egg Noodles</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 260%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href ="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+     
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         
+            <a class="dropdown-item" href="{% url 'starters' %}">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+             <a class="dropdown-item" href="{% url 'beverages' %}">Beverages</a>
+           
+          
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item active">
+        {% if user.is_authenticated %}
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>{% else %}
+     <li class="nav-item active">
+      <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+
+    </li>
+    {% endif %}
+  </ul>
+   
+ 
+</nav>
+
+<div class="heading"> <b>Egg Noodles</b> </div>
+<div> <img class="picture" src="{% static 'images/main5.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}" /> Cook Time: 25mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 4</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Egg Noodles:</b>
+1 packet - hakka noodles
+1/4 cup - vegetables, finely chopped (carrot, capsicum)
+1 tsp - soya sauce
+1/2 tbsp - pasta/pizza sauce (optional)
+1/2 tbsp - Tomato sauce
+1/2 tsp - Vinegar (or Lemon juice)
+2 - Egg
+3 tsp - garlic, chopped fine
+1 - onion, chopped
+1/2 tsp - pepper powder
+2 tbsp - Olive oil
+salt
+</pre>
+</div>
+{% if user.is_authenticated %}
+
+
+<br>
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.Boil water, add a tsp of oil and add the hakka noodles. Let it boil for 3 - 4 mins till cooked. 
+Drain and keep aside.
+2.Heat 1/2 tsp oil in a pan, then break the egg and add it with a pinch of salt and pepper. 
+3.Scramble it well, till the egg is completely cooked. Keep aside.
+4.Heat remaining oil in the same pan.
+5.Add garlic, onions and fry for 2 mins. Then add the finely chopped vegetables.
+6.Sprinkle water to let the vegetables get cooked without losing the crunchiness.
+7.On high flame, add soya sauce and stir well. Let this simmer.
+8.Then add pasta sauce, tomato sauce, required salt, pepper powder and mix well.
+9.Stir well until vegetables get mixed well with the sauces.
+10.Add scrambled egg and give a quick stir.
+11.Now add boiled and drained noodles to the pan and mix well with sauces and vegetables.
+12.Toss the noodles for 2 mins.
+13.Squeeze lemon juice/vinegar.
+14.Switch off the flame and serve hot!
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+{% endif %}
+
+
+</body>
+</html>

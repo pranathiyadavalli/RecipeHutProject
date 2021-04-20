@@ -1,0 +1,147 @@
+{% load static %}
+\<!DOCTYPE html>
+<head>
+<title>Pizza</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 190%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" href="#">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+           <a class="dropdown-item" href="#">Beverages</a>
+            
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item active">
+            {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>{% else %}
+         <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+  
+        </li>
+        {% endif %}
+      </ul>
+  </nav>
+<div class="heading"> <b> Pizza</b> </div>
+<div> <img class="picture" src="{% static 'images/starter3.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}" /> Cook Time: 45mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 4</div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Pizza:</b>
+2 x 10 inch Readymade pizza bases
+1 Can or jar of tomato sauce, enough to cover the pizza (about 2 cups)
+1/2 TSP Dried oregano
+100 GRAM Cheddar cheese, grated
+1 Onion, sliced
+1 Green pepper, sliced
+1 Red pepper, sliced
+100 GRAM Mushrooms, sliced
+</pre>
+</div>
+{% if user.is_authenticated %}
+<br>
+<br>
+<div class="recipe">
+<pre>
+<b> Procedure:</b>
+1.Preheat the oven to 200C.
+2.Cover the bases thinly with the sauce followed by the oregano and cheese.
+3.Then place the slices of onion, peppers and mushrooms on top.
+4.Bake for 10-15 minutes until the cheese has completely melted and starts to turn brown around 
+the pizza's edge.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+<br>
+{% endif %}
+
+
+</body>
+</html>

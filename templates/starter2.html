@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+<title>Veg Manchurian</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+
+
+body, html {
+  height: 320%;
+  margin: 0;
+  font-family: verdana;
+}
+.bg-image {
+
+  background-image: url("{% static 'images/picture3.jpeg' %}");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.heading {
+    text-align: center;
+    font-size: 60px;
+    color: red;
+}
+.picture {
+    margin-left: 400px;
+    margin-top: 20px;
+    height: 300px;
+    width: 450px;
+}
+.recipe {
+    font-size: 23px;
+    font-family: verdana;
+    text-align: justify;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.icon {
+    margin-left: 250px;
+    height: 50px;
+    width: 50px;
+}
+.text {
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body class="bg-image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="{% static 'images/logo.jpg' %}" width = 200px height = 60px></a>
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp; &nbsp; &nbsp;&nbsp;
+     
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="            Find a recipe" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchenhacks' %}">Kitchen Hacks <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item  active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" href="#">Appetizers</a>
+            <a class="dropdown-item" href="{% url 'main' %}">Main Course</a>
+            <a class="dropdown-item" href="{% url 'desserts' %}">Desserts</a>
+           <a class="dropdown-item" href="#">Beverages</a>
+            
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item active">
+            {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>{% else %}
+         <li class="nav-item active">
+          <a class="nav-link" href="{% url 'user_login' %}">LogIn</a>
+  
+        </li>
+        {% endif %}
+      </ul>
+  </nav>
+
+<div class="heading"> <b> Veg Manchurian</b> </div>
+<div> <img class="picture" src="{% static 'images/starter2.jpeg' %}" /> </div>
+<br>
+<br>
+<br>
+<div class="text" > <img  class="icon" src="{% static 'images/icon1.svg' %}" /> Cook Time: 45mins 
+<img class="icon" src="{% static 'images/icon2.svg' %}" /> Servings: 2 </div>
+<br>
+<br>
+<br>
+
+ 
+<div class="recipe"><pre>
+<b>Ingredients Of Veg Manchurian:</b>
+<b>For vegetable balls:</b>
+1/2 Cup Cabbage
+1/2 Cup Carrot
+1/2 Cup Capsicum
+1/2 Cup Spring onion
+1 tsp Ginger
+1 tsp Garlic
+3 Tbsp Corn flour
+2 Tbsp Maida
+2 tsp Salt
+2 tsp Black pepper
+1 tsp Soy sauce
+1 Tbsp Water
+<b>For manchurian sauce:</b>
+Oil
+2 Tbsp Garlic
+1 Tbsp Ginger
+1 tsp Green chilli
+2 Tbsp Spring onion
+2 Tbsp Tomato ketchup
+2 Tbsp Chilly sauce
+1 tsp Soya sauce
+1 tsp Vinegar
+1 1/2 Tbsp Salt
+1 Tbsp Black pepper
+3 Tbsp Corn flour
+1 Cup Water
+</pre>
+</div>
+{% if user.is_authenticated %}
+<br>
+<div class="recipe">
+<pre>
+<b>Procedure:</b>
+To prepare the vegetable balls:
+1.Take all the veggies, finely chopped, in a bowl along with ginger,
+ garlic, corn flour, maida, salt, black pepper and soy sauce.
+2.Mix them well, adding water as required for consistency.
+3.Make round balls out of the thick vegetable mixture.
+4.Now deep fry the vegetable balls in a pan.
+Prepare the sauce:
+1.Heat some oil in a pan and roast ginger, garlic and green chilli in it for a while
+2.Add spring onion, tomato ketchup, chilly sauce, 
+ soya sauce and vinegar followed by salt and black pepper.
+3.Mix them well and add a mixture of corn flour plus water to the pan.
+4.Mix thoroughly and put the fried vegetable balls into the mixture.
+5.Properly mix the balls along with the sauce.
+6.Garnish with spring onion and celery. Serve hot along with cooked rice.
+</pre>
+</div>
+{% else %}
+<button type="button" class="btn btn-success" style="margin-left:40px"><a href ="{% url 'register' %}">Read More</a></button>
+<br>
+{% endif %}
+
+</body>
+</html>
+
